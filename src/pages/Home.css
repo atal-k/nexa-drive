@@ -1,0 +1,39 @@
+/* ============================================
+     📁 src/pages/Home.css
+     ============================================ */
+     .home {
+        width: 100%;
+      }
+      
+      .featured-cars {
+        padding: var(--spacing-xl) 0;
+        background-color: var(--bg-light);
+      }
+      
+      .why-choose-us {
+        padding: var(--spacing-xl) 0;
+      }
+      
+      .feature {
+        text-align: center;
+        padding: var(--spacing-lg);
+        background-color: var(--bg-white);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease;
+      }
+      
+      .feature:hover {
+        transform: translateY(-2px);
+      }
+      
+      .feature h3 {
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-sm);
+      }
+      
+      .feature p {
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+      

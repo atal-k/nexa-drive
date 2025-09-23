@@ -1,0 +1,111 @@
+
+  /* ============================================
+     📁 src/components/layout/Header.css
+     ============================================ */
+     .header {
+        background-color: var(--bg-white);
+        box-shadow: var(--shadow-sm);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        height: var(--header-height);
+      }
+      
+      .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+      }
+      
+      .logo {
+        text-decoration: none;
+        color: var(--primary-color);
+      }
+      
+      .logo h2 {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+      
+      .nav {
+        display: flex;
+        gap: var(--spacing-lg);
+      }
+      
+      .nav__link {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        padding: var(--spacing-xs) 0;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+      
+      .nav__link:hover {
+        color: var(--primary-color);
+      }
+      
+      .nav__link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+      }
+      
+      .nav__link:hover::after {
+        width: 100%;
+      }
+      
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: var(--spacing-xs);
+      }
+      
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-dark);
+        margin: 3px 0;
+        transition: 0.3s;
+      }
+      
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: flex;
+        }
+        
+        .nav {
+          position: fixed;
+          top: var(--header-height);
+          left: 0;
+          width: 100%;
+          height: calc(100vh - var(--header-height));
+          background-color: var(--bg-white);
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          padding-top: var(--spacing-xl);
+          transform: translateX(-100%);
+          transition: transform 0.3s ease;
+          box-shadow: var(--shadow-md);
+        }
+        
+        .nav--open {
+          transform: translateX(0);
+        }
+        
+        .nav__link {
+          font-size: 1.2rem;
+          padding: var(--spacing-md) 0;
+        }
+      }
