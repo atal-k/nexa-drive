@@ -12,6 +12,8 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const closeMenu = () => setIsMenuOpen(false);
+
 
   return (
     <header className="header">
@@ -21,10 +23,10 @@ const Header = () => {
         </Link>
         
         <nav className={`nav ${isMenuOpen ? 'nav--open' : ''}`}>
-          <Link to="/" className="nav__link">Home</Link>
-          <Link to="/cars" className="nav__link">Our Cars</Link>
-          <Link to="/about" className="nav__link">About</Link>
-          <Link to="/contact" className="nav__link">Contact</Link>
+          <Link to="/" className="nav__link" onClick={closeMenu}>Home</Link>
+          <Link to="/cars" className="nav__link" onClick={closeMenu}>Our Cars</Link>
+          <Link to="/about" className="nav__link" onClick={closeMenu}>About</Link>
+          <Link to="/contact" className="nav__link" onClick={closeMenu}>Contact</Link>
         </nav>
 
         <button 

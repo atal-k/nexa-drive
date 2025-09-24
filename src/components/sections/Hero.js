@@ -8,27 +8,37 @@ import './Hero.css';
 const Hero = () => {
   return (
     <section className="hero">
+      <div className="hero__video-container">
+        <video 
+          className="hero__video"
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        >
+          <source src="/videos/van-promo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="hero__video-overlay"></div>
+      </div>
+      
       <div className="hero__content">
         <div className="container">
           <div className="hero__text">
             <h1 className="hero__title">Find Your Dream Car</h1>
             <p className="hero__subtitle">
-              Discover the perfect vehicle for your lifestyle
+              Experience automotive excellence with every drive
             </p>
             <div className="hero__actions">
-              <Link to="/cars" className="btn btn--primary btn--large hero-btn">
-                Explore Cars
+              <Link to="/cars" className="btn btn--primary btn--large">
+                Explore Collection
               </Link>
-              <Link to="/contact" className="btn btn--secondary btn--large hero-btn">
-                Get Quote
+              <Link to="/contact" className="btn btn--secondary btn--large">
+                Book Test Drive
               </Link>
             </div>
           </div>
         </div>
-      </div>
-      
-      <div className="hero__image">
-        <img src="/images/hero-car.jpg" alt="Featured Car" />
       </div>
     </section>
   );

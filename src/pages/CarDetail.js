@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCarById } from '../data/cars';
+import ImageZoom from '../components/common/ImageZoom';
 import './CarDetail.css';
 
 const CarDetail = () => {
@@ -29,9 +30,16 @@ const CarDetail = () => {
         </div>
         
         <div className="car-detail__content">
-          <div className="car-detail__gallery">
-            <img src={car.image} alt={car.name} className="main-image" />
-          </div>
+        <div className="car-detail__gallery">
+          <ImageZoom
+            src={car.image}
+            alt={car.name}
+            className="main-image-zoom"
+            zoomLevel={2}    // 2x magnification
+            lensSize={250}   // 250 diameter
+            // shape="square"   // square preview
+          />
+        </div>
           
           <div className="car-detail__info">
             <div className="tabs">

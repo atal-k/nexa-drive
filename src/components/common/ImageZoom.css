@@ -1,0 +1,62 @@
+
+/* ============================================
+// 📁 src/components/common/ImageZoom.css
+// ============================================ */
+.image-zoom {
+  position: relative;
+  display: inline-block;
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+.image-zoom__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  pointer-events: auto;
+}
+
+/* .image-zoom__lens {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  box-shadow: 
+    0 0 0 2px rgba(0, 0, 0, 0.3),
+    0 8px 25px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: 10;
+  backdrop-filter: blur(0.5px);
+  transition: opacity 0.2s ease;
+} */
+
+.image-zoom__lens {
+  position: absolute;
+  border: 3px solid rgba(255,255,255,0.8);
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.3), 0 8px 25px rgba(0,0,0,0.4);
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.12s ease;
+  overflow: hidden;
+  backdrop-filter: blur(0.5px);
+}
+
+.image-zoom:hover .image-zoom__lens {
+  opacity: 1;
+}
+
+/* Mobile: Disable zoom on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .image-zoom {
+    cursor: default;
+  }
+  
+  .image-zoom__lens {
+    display: none;
+  }
+}
