@@ -5,7 +5,7 @@ const ImageZoomer = ({
   src, 
   alt = "Product Image",
   zoomFactor = 4,
-  selectorSize = 150 
+  selectorSize = 140 
 }) => {
   // State for tracking mouse and zoom status
   const [isZooming, setIsZooming] = useState(false);

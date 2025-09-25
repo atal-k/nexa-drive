@@ -39,6 +39,9 @@
        width: 100%;
        max-width: 500px;
      }
+     .vehicle-detail__main-image {
+       margin-bottom: var(--spacing-md);
+     }
      
      .main-image {
        width: 100%;
@@ -137,6 +140,38 @@
        width: 100%;
        height: 100%;
        object-fit: cover;
+     }
+
+     /* Thumbnails */
+     .vehicle-detail__thumbnails {
+       display: flex;
+       gap: var(--spacing-sm);
+       flex-wrap: wrap;
+     }
+
+     .vehicle-detail__thumb {
+       border: 2px solid transparent;
+       padding: 0;
+       border-radius: 6px;
+       background: none;
+       cursor: pointer;
+       transition: border-color 0.2s ease, transform 0.2s ease;
+     }
+
+     .vehicle-detail__thumb:hover {
+       transform: translateY(-2px);
+     }
+
+     .vehicle-detail__thumb.active {
+       border-color: var(--primary-color);
+     }
+
+     .vehicle-detail__thumb img {
+       width: 64px;
+       height: 64px;
+       object-fit: cover;
+       display: block;
+       border-radius: 4px;
      }
 
 

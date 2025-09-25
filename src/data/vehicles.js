@@ -23,7 +23,11 @@ const vehicles = [
     id: 2,
     name: "NexaDrive 4-Wheel LR",
     price: "₹9,86,000",
-    images: ["4wheel-LR.webp", "4wheel-LR-SV.webp"],
+    images: [
+      "4wheel-LR.webp",
+      "4wheel-LR-SV.webp",
+      "4wheel-LR.webp",
+    ],
     transmission: "Automatic",
     bodyType: "4-Wheeler",
     featured: true,

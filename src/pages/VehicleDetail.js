@@ -13,10 +13,12 @@ const VehicleDetail = () => {
   const { id } = useParams();
   const [vehicle, setVehicle] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   useEffect(() => {
     const vehicleData = getVehicleById(parseInt(id));
     setVehicle(vehicleData);
+    setSelectedImageIndex(0);
   }, [id]);
 
   if (!vehicle) {
@@ -33,12 +35,31 @@ const VehicleDetail = () => {
         
         <div className="vehicle-detail__content">
           <div className="vehicle-detail__gallery">
-            <ImageZoomer
-              src={`/images/${vehicle.images?.[0] || ''}`}
-              alt={vehicle.name}
-              zoomFactor={2.5}
-              selectorSize={150}
-            />
+            <div className="vehicle-detail__main-image">
+              <ImageZoomer
+                src={`/images/${vehicle.images?.[selectedImageIndex] || ''}`}
+                alt={`${vehicle.name} - image ${selectedImageIndex + 1}`}
+                zoomFactor={2.5}
+                selectorSize={140}
+              />
+            </div>
+
+            {Array.isArray(vehicle.images) && vehicle.images.length > 0 && (
+              <div className="vehicle-detail__thumbnails">
+                {(vehicle.images.slice(0, 12)).map((imgName, idx) => (
+                  <button
+                    key={`${imgName}-${idx}`}
+                    className={`vehicle-detail__thumb ${idx === selectedImageIndex ? 'active' : ''}`}
+                    onClick={() => setSelectedImageIndex(idx)}
+                    onMouseEnter={() => setSelectedImageIndex(idx)}
+                    onTouchStart={() => setSelectedImageIndex(idx)}
+                    aria-label={`Select image ${idx + 1}`}
+                  >
+                    <img src={`/images/${imgName}`} alt={`Thumbnail ${idx + 1}`} />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           
           <div className="vehicle-detail__info">

@@ -30,7 +30,7 @@ const Hero = () => {
               Experience automotive excellence with every drive
             </p>
             <div className="hero__actions">
-              <Link to="/cars" className="btn btn--primary btn--large">
+              <Link to="/vehicles" className="btn btn--primary btn--large">
                 Explore Collection
               </Link>
               <Link to="/contact" className="btn btn--secondary btn--large">
