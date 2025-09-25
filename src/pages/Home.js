@@ -3,23 +3,23 @@
 // ============================================
 import React from 'react';
 import Hero from '../components/sections/Hero';
-import CarCard from '../components/common/CarCard';
-import { getFeaturedCars } from '../data/cars';
+import VehicleCard from '../components/common/VehicleCard';
+import { getFeaturedVehicles } from '../data/vehicles';
 import './Home.css';
 
 const Home = () => {
-  const featuredCars = getFeaturedCars();
+  const featuredVehicles = getFeaturedVehicles();
 
   return (
     <div className="home">
       <Hero />
       
-      <section className="featured-cars">
+      <section className="featured-vehicles">
         <div className="container">
-          <h2 className="section-title">Featured Cars</h2>
-          <div className="cars-grid">
-            {featuredCars.map(car => (
-              <CarCard key={car.id} car={car} />
+          <h2 className="section-title">Featured Vehicles</h2>
+          <div className="vehicles-grid">
+            {featuredVehicles.map(vehicle => (
+              <VehicleCard key={vehicle.id} vehicle={vehicle} />
             ))}
           </div>
         </div>
@@ -39,7 +39,7 @@ const Home = () => {
             </div>
             <div className="feature">
               <h3>Wide Selection</h3>
-              <p>Choose from 100+ car models</p>
+              <p>Choose from multiple electric vehicle models</p>
             </div>
           </div>
         </div>

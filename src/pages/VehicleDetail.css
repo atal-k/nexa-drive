@@ -1,0 +1,177 @@
+/* ============================================
+    📁 src/pages/VehicleDetail.css
+    ============================================ */
+    @import '../components/common/ImageZoomer.css';
+    .vehicle-detail {
+       padding: var(--spacing-xl) 0;
+     }
+     
+     .vehicle-detail__header {
+       text-align: center;
+       margin-bottom: var(--spacing-xl);
+     }
+     
+     .vehicle-detail__header h1 {
+       font-size: 2.5rem;
+       margin-bottom: var(--spacing-sm);
+     }
+     
+     .price {
+       font-size: 1.5rem;
+       font-weight: 700;
+       color: var(--accent-color);
+     }
+     
+     .vehicle-detail__content {
+       display: grid;
+       grid-template-columns: 1fr 1fr; /* Give more space to gallery */
+       gap: var(--spacing-lg);
+       align-items: start;
+     }
+     
+     .vehicle-detail__gallery {
+       position: sticky;
+       top: calc(var(--header-height) + var(--spacing-md));
+       overflow: visible; /* Allow overlay to extend outside */
+     }
+
+     .vehicle-detail__gallery .image-zoomer-container {
+       width: 100%;
+       max-width: 500px;
+     }
+     
+     .main-image {
+       width: 100%;
+       height: 450px;
+       object-fit: cover;
+       border-radius: var(--border-radius);
+       box-shadow: var(--shadow-md);
+     }
+     
+     .tabs {
+       display: flex;
+       border-bottom: 2px solid var(--border-color);
+       margin-bottom: var(--spacing-lg);
+     }
+     
+     .tab {
+       padding: var(--spacing-md) var(--spacing-lg);
+       background: none;
+       border: none;
+       cursor: pointer;
+       font-size: 1rem;
+       font-weight: 500;
+       color: var(--text-light);
+       border-bottom: 2px solid transparent;
+       transition: all 0.3s ease;
+     }
+     
+     .tab.active {
+       color: var(--primary-color);
+       border-bottom-color: var(--primary-color);
+     }
+     
+     .tab-content {
+       margin-bottom: var(--spacing-xl);
+     }
+     
+     .tab-content h3 {
+       margin-bottom: var(--spacing-md);
+       color: var(--text-dark);
+     }
+     
+     .tab-content ul {
+       list-style: none;
+       padding-left: 0;
+     }
+     
+     .tab-content li {
+       padding: var(--spacing-xs) 0;
+       border-bottom: 1px solid var(--border-color);
+       display: flex;
+       justify-content: space-between;
+     }
+     
+     .tab-content li:last-child {
+       border-bottom: none;
+     }
+     
+     .tab-content table {
+       width: 100%;
+       border-collapse: collapse;
+     }
+     
+     .tab-content table td {
+       padding: var(--spacing-sm);
+       border-bottom: 1px solid var(--border-color);
+     }
+     
+     .tab-content table td:first-child {
+       font-weight: 500;
+       color: var(--text-dark);
+     }
+     
+     .vehicle-detail__actions {
+       display: flex;
+       gap: var(--spacing-md);
+       flex-wrap: wrap;
+     }
+     /* ADD these new styles for ImageZoomer integration */
+     .vehicle-detail__gallery .image-zoomer-container {
+       max-width: 100%;
+     }
+
+     .vehicle-detail__gallery .image-zoomer-main {
+       width: 80%;
+       height: 400px;
+       border: 2px solid var(--border-color);
+       border-radius: var(--border-radius);
+       box-shadow: var(--shadow-md);
+     }
+     /* .vehicle-detail__gallery .image-zoomer-main {
+       --source-image-width: 500px;
+       --source-image-height: 400px;
+     } */
+
+     .vehicle-detail__gallery .image-zoomer-image {
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+     }
+
+
+
+     /* Update responsive styles */
+     @media (max-width: 768px) {
+       .vehicle-detail__gallery .image-zoomer-container {
+         flex-direction: column;
+       }
+       
+       .vehicle-detail__gallery .image-zoomer-main {
+         height: 250px;
+       }
+
+     }
+     
+     @media (max-width: 768px) {
+       .vehicle-detail__content {
+         grid-template-columns: 1fr;
+         gap: var(--spacing-lg);
+       }
+       
+       .vehicle-detail__gallery {
+         position: static;
+       }
+       
+       .main-image {
+         height: 250px;
+       }
+       
+       .vehicle-detail__actions {
+         flex-direction: column;
+       }
+       
+       .vehicle-detail__actions .btn {
+         width: 100%;
+       }
+     }

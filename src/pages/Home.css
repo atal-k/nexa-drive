@@ -9,6 +9,10 @@
         padding: var(--spacing-xl) 0;
         background-color: var(--bg-light);
       }
+      .featured-vehicles {
+        padding: var(--spacing-xl) 0;
+        background-color: var(--bg-light);
+      }
       
       .why-choose-us {
         padding: var(--spacing-xl) 0;

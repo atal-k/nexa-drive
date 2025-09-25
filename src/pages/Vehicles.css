@@ -1,8 +1,14 @@
 /* ============================================
-     📁 src/pages/Cars.css
+     📁 src/pages/Vehicles.css
      ============================================ */
-     .cars-page {
+     .vehicles-page {
         padding: var(--spacing-xl) 0;
+      }
+
+      .vehicles-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: var(--spacing-lg);
       }
       
       .filters {
@@ -29,10 +35,20 @@
         outline: none;
         border-color: var(--primary-color);
       }
+      @media (max-width: 1020px) {
+        .vehicles-grid{
+          grid-template-columns: 1fr 1fr;
+        }
+      }
       
       @media (max-width: 768px) {
         .filters {
           flex-direction: column;
+          
+        }
+        .vehicles-grid{
+          grid-template-columns: 1fr;
+
         }
         
         .filters select {

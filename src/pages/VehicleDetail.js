@@ -1,46 +1,47 @@
 // ============================================
-// 📁 src/pages/CarDetail.js
+// 📁 src/pages/VehicleDetail.js
 // ============================================
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getCarById } from '../data/cars';
+import { getVehicleById } from '../data/vehicles';
+
 import ImageZoomer from '../components/common/ImageZoomer';
 
-import './CarDetail.css';
+import './VehicleDetail.css';
 
-const CarDetail = () => {
+const VehicleDetail = () => {
   const { id } = useParams();
-  const [car, setCar] = useState(null);
+  const [vehicle, setVehicle] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
   useEffect(() => {
-    const carData = getCarById(parseInt(id));
-    setCar(carData);
+    const vehicleData = getVehicleById(parseInt(id));
+    setVehicle(vehicleData);
   }, [id]);
 
-  if (!car) {
-    return <div className="loading">Loading car details...</div>;
+  if (!vehicle) {
+    return <div className="loading">Loading vehicle details...</div>;
   }
 
   return (
-    <div className="car-detail">
+    <div className="vehicle-detail">
       <div className="container">
-        <div className="car-detail__header">
-          <h1>{car.name}</h1>
-          <p className="price">Starting at ₹{car.price}</p>
+        <div className="vehicle-detail__header">
+          <h1>{vehicle.name}</h1>
+          <p className="price">{vehicle.price}</p>
         </div>
         
-        <div className="car-detail__content">
-        <div className="car-detail__gallery">
-          <ImageZoomer
-            src={car.image}
-            alt={car.name}
-            zoomFactor={2.5}     
-            selectorSize={150} 
-          />
-        </div>
+        <div className="vehicle-detail__content">
+          <div className="vehicle-detail__gallery">
+            <ImageZoomer
+              src={`/images/${vehicle.images?.[0] || ''}`}
+              alt={vehicle.name}
+              zoomFactor={2.5}
+              selectorSize={150}
+            />
+          </div>
           
-          <div className="car-detail__info">
+          <div className="vehicle-detail__info">
             <div className="tabs">
               <button 
                 className={`tab ${activeTab === 'overview' ? 'active' : ''}`}
@@ -61,10 +62,8 @@ const CarDetail = () => {
                 <div>
                   <h3>Key Features</h3>
                   <ul>
-                    <li>Fuel Type: {car.fuelType}</li>
-                    <li>Transmission: {car.transmission}</li>
-                    <li>Mileage: {car.mileage} kmpl</li>
-                    <li>Body Type: {car.bodyType}</li>
+                    <li>Transmission: {vehicle.transmission}</li>
+                    <li>Body Type: {vehicle.bodyType}</li>
                   </ul>
                 </div>
               )}
@@ -74,16 +73,18 @@ const CarDetail = () => {
                   <h3>Technical Specifications</h3>
                   <table>
                     <tbody>
-                      <tr><td>Engine</td><td>{car.specs?.engine || 'N/A'}</td></tr>
-                      <tr><td>Power</td><td>{car.specs?.power || 'N/A'}</td></tr>
-                      <tr><td>Torque</td><td>{car.specs?.torque || 'N/A'}</td></tr>
+                      <tr><td>Range</td><td>{vehicle.specs?.range || 'N/A'}</td></tr>
+                      <tr><td>Payload Capacity</td><td>{vehicle.specs?.payloadCapacity || 'N/A'}</td></tr>
+                      <tr><td>Max Speed</td><td>{vehicle.specs?.maxSpeed || 'N/A'}</td></tr>
+                      <tr><td>Torque</td><td>{vehicle.specs?.torque || 'N/A'}</td></tr>
+                      <tr><td>Fast Charging</td><td>{vehicle.specs?.fastCharging || 'N/A'}</td></tr>
                     </tbody>
                   </table>
                 </div>
               )}
             </div>
             
-            <div className="car-detail__actions">
+            <div className="vehicle-detail__actions">
               <button className="btn btn--primary">Schedule Test Drive</button>
               <button className="btn btn--secondary">Get Quote</button>
             </div>
@@ -94,4 +95,4 @@ const CarDetail = () => {
   );
 };
 
-export default CarDetail;
+export default VehicleDetail;

@@ -14,7 +14,7 @@ const About = () => {
           <div className="about__section">
             <h2>Our Story</h2>
             <p>
-              Founded in 2010, AutoDrive has been at the forefront of automotive 
+              Founded in 2010, NexaDrive has been at the forefront of automotive 
               innovation, providing customers with reliable, efficient, and 
               stylish vehicles.
             </p>
@@ -23,7 +23,7 @@ const About = () => {
           <div className="about__section">
             <h2>Our Mission</h2>
             <p>
-              To make car ownership accessible and enjoyable for everyone through 
+              To make vehicle ownership accessible and enjoyable for everyone through 
               innovative technology and exceptional service.
             </p>
           </div>
@@ -35,7 +35,7 @@ const About = () => {
             </div>
             <div className="stat">
               <h3>100+</h3>
-              <p>Car Models</p>
+              <p>Vehicle Models</p>
             </div>
             <div className="stat">
               <h3>200+</h3>

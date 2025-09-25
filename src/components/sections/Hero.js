@@ -25,7 +25,7 @@ const Hero = () => {
       <div className="hero__content">
         <div className="container">
           <div className="hero__text">
-            <h1 className="hero__title">Find Your Dream Car</h1>
+            <h1 className="hero__title">Get your Dream Vehicle</h1>
             <p className="hero__subtitle">
               Experience automotive excellence with every drive
             </p>
