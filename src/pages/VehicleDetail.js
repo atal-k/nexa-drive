@@ -46,6 +46,7 @@ const VehicleDetail = () => {
 
             {Array.isArray(vehicle.images) && vehicle.images.length > 0 && (
               <div className="vehicle-detail__thumbnails">
+                {/* Loading max 12 images into thumbnail */}
                 {(vehicle.images.slice(0, 12)).map((imgName, idx) => (
                   <button
                     key={`${imgName}-${idx}`}

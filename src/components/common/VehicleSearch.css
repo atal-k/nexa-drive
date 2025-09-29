@@ -1,0 +1,407 @@
+/* ============================================
+   📁 src/components/common/VehicleSearch.css
+   ============================================ */
+
+.vehicle-search {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Search Header */
+.vehicle-search__header {
+  background-color: var(--bg-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border: 1px solid var(--border-color);
+}
+
+.vehicle-search__input-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Search Input */
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background-color: var(--bg-white);
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.search-input::placeholder {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.search-input:focus + .search-icon {
+  color: var(--primary-color);
+}
+
+/* Filter Toggle Button */
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 12px 16px;
+  background-color: var(--bg-light);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--text-dark);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.filter-toggle:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.filter-toggle.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.filter-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-width: 20px;
+}
+
+/* Results Summary */
+.vehicle-search__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.results-count {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+}
+
+.clear-filters {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: underline;
+}
+
+.clear-filters:hover {
+  background-color: var(--bg-light);
+  text-decoration: none;
+}
+
+/* Filters Panel */
+.vehicle-search__filters {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-group select {
+  padding: 10px 14px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.filter-group select:hover {
+  border-color: var(--primary-color);
+}
+
+/* Search Results */
+.vehicle-search__results {
+  min-height: 200px;
+}
+
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+/* No Results State */
+.no-results {
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius);
+  border: 2px dashed var(--border-color);
+  margin-top: var(--spacing-lg);
+}
+
+.no-results__icon {
+  color: var(--text-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.no-results h3 {
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.5rem;
+}
+
+.no-results p {
+  color: var(--text-light);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.1rem;
+}
+
+.no-results .btn {
+  margin-top: var(--spacing-sm);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vehicle-search__header {
+    padding: var(--spacing-md);
+  }
+
+  .vehicle-search__input-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+  }
+
+  .search-input-wrapper {
+    max-width: none;
+  }
+
+  .filter-toggle {
+    justify-content: center;
+    padding: 12px 16px;
+  }
+
+  .vehicle-search__summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .filters-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .vehicles-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .no-results {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .no-results h3 {
+    font-size: 1.25rem;
+  }
+
+  .no-results p {
+    font-size: 1rem;
+  }
+}
+
+/* Large screens: keep input full-width and push toggle to the right */
+@media (min-width: 1024px) {
+  .filter-toggle {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .vehicle-search__header {
+    padding: var(--spacing-sm);
+  }
+
+  .search-input {
+    padding: 12px 14px 12px 44px;
+    font-size: 0.9rem;
+  }
+
+  .search-icon {
+    left: 14px;
+  }
+
+  .filter-toggle {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .results-count {
+    font-size: 1rem;
+  }
+
+  .clear-filters {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+
+/* Loading State */
+.vehicle-search--loading .vehicles-grid {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.vehicle-search--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Focus States for Accessibility */
+.search-input:focus,
+.filter-toggle:focus,
+.clear-filters:focus,
+.filter-group select:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .vehicle-search__header,
+  .vehicle-search__filters {
+    border-width: 2px;
+  }
+
+  .search-input,
+  .filter-group select {
+    border-width: 2px;
+  }
+
+  .filter-toggle {
+    border-width: 2px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .vehicle-search__filters {
+    animation: none;
+  }
+
+  .search-input,
+  .filter-toggle,
+  .filter-group select,
+  .clear-filters {
+    transition: none;
+  }
+
+  .vehicle-search--loading::after {
+    animation: none;
+  }
+}
